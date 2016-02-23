@@ -1,9 +1,136 @@
 <ion-view view-title="Account">
   <ion-content>
-    <ion-list>
-    <ion-toggle  ng-model="settings.enableFriends">
-        Enable Friends
-    </ion-toggle>
-    </ion-list>
+    <div class="list" id="mainUser">
+	    <ion-toggle  id="settings.enableFriends">
+	        Enable Friends
+	    </ion-toggle>
+    </div>
+    <div id="firstUser">
+    	<div class="item item-divider">Basic Info</div>
+    	<div class="list">
+			  <label class="item item-input item-stacked-label">
+			    <span class="input-label">Name</span>
+			    <input type="text" placeholder="Fulan" id="name">
+			    <p>{{name}}</p>
+			  </label>
+			  <label class="item item-input item-stacked-label">
+			    <span class="input-label">Email</span>
+			    <input type="email" placeholder="fulan@fulan.com" id="email">
+			  </label>
+			  <label class="item item-input item-stacked-label">
+			    <span class="input-label">About You</span>
+			    <input type="text" placeholder="Describe your self" id="about">
+			  </label>
+			  <label class="item item-input item-stacked-label">
+			    <span class="input-label">Location</span>
+			    <input type="text" placeholder="Jakarta" id="location">
+			  </label>
+		</div>
+		<div class="item item-divider">Music Preferences</div>
+		<div class="list">
+		  	<li class="item item-toggle">
+		     Traditional<label class="toggle toggle-assertive">
+		       <input type="checkbox" id="musicPref_traditional">
+		       <div class="track">
+		         <div class="handle"></div>
+		       </div>
+		     </label>
+		  	</li>
+			<li class="item item-toggle">
+		     Rock<label class="toggle toggle-assertive">
+		       <input type="checkbox" id="musicPref_rock">
+		       <div class="track">
+		         <div class="handle"></div>
+		       </div>
+		     </label>
+		  	</li>
+		  	<li class="item item-toggle">
+		     Jazz<label class="toggle toggle-assertive">
+		       <input type="checkbox" id="musicPref_jazz">
+		       <div class="track">
+		         <div class="handle"></div>
+		       </div>
+		     </label>
+		  	</li>
+		  	<li class="item item-toggle">
+		     Pop<label class="toggle toggle-assertive">
+		       <input type="checkbox" id="musicPref_pop">
+		       <div class="track">
+		         <div class="handle"></div>
+		       </div>
+		     </label>
+		  	</li>
+		  	<li class="item item-toggle">
+		     Alternative<label class="toggle toggle-assertive">
+		       <input type="checkbox" id="musicPref_alternative">
+		       <div class="track">
+		         <div class="handle"></div>
+		       </div>
+		     </label>
+		  	</li>
+		  	<li class="item item-toggle">
+		     Dangdut<label class="toggle toggle-assertive">
+		       <input type="checkbox" id="musicPref_dangdut">
+		       <div class="track">
+		         <div class="handle"></div>
+		       </div>
+		     </label>
+		  	</li>
+	  	</div>
+	  	<div class="item item-divider">Partner Preferences</div>
+		<div class="list">
+		  	<li class="item item-toggle">
+		     Trainer<label class="toggle toggle-assertive">
+		       <input type="checkbox" id="partnerPref_trainer">
+		       <div class="track">
+		         <div class="handle"></div>
+		       </div>
+		     </label>
+		    </li>
+			<li class="item item-toggle">
+		     Vocalist<label class="toggle toggle-assertive">
+		       <input type="checkbox" id="partnerPref_vocalist">
+		       <div class="track">
+		         <div class="handle"></div>
+		       </div>
+		     </label>
+		  	</li>
+		  	<li class="item item-toggle">
+		     Guitarist<label class="toggle toggle-assertive">
+		       <input type="checkbox" id="partnerPref_guitarist">
+		       <div class="track">
+		         <div class="handle"></div>
+		       </div>
+		     </label>
+		  	</li>
+		  	<li class="item item-toggle">
+		     Pianist<label class="toggle toggle-assertive">
+		       <input type="checkbox" id="partnerPref_pianist">
+		       <div class="track">
+		         <div class="handle"></div>
+		       </div>
+		     </label>
+		  	</li>
+		  	<li class="item item-toggle">
+		     Bassist<label class="toggle toggle-assertive">
+		       <input type="checkbox" id="partnerPref_bassist">
+		       <div class="track">
+		         <div class="handle"></div>
+		       </div>
+		     </label>
+		  	</li>
+		  	<li class="item item-toggle">
+		     Drummer<label class="toggle toggle-assertive">
+		       <input type="checkbox" id="partnerPref_drummer">
+		       <div class="track">
+		         <div class="handle"></div>
+		       </div>
+		     </label>
+		  	</li>
+	  	</div>
+	  <button ng-click="signUp()" class="button button-full button-assertive">
+	  	Sign Up
+	  </button>
+	</div>
   </ion-content>
 </ion-view>

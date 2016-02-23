@@ -1,15 +1,9 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope) {})
-
 .controller('ChatsCtrl', function($scope, Chats) {
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
+  if(window.localStorage.getItem("profile") == null){
+    
+  }
 
   $scope.chats = Chats.all();
   $scope.remove = function(chat) {
@@ -18,11 +12,63 @@ angular.module('starter.controllers', [])
 })
 
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
+  if(window.localStorage.getItem("profile") == null){
+    
+  }
   $scope.chat = Chats.get($stateParams.chatId);
 })
 
+.controller('HomeCtrl', function($scope) {
+  
+})
+
+.controller('NotificationCtrl', function($scope) {
+  
+})
+
 .controller('AccountCtrl', function($scope) {
-  $scope.settings = {
-    enableFriends: true
+  if(window.localStorage.getItem("profile") == null){
+    $('#mainUser').hide();
+  }
+  else{
+    // if already signup
+    $('#firstUser').hide();
+  }
+
+  $scope.signUp = function (){
+      //console.log($scope.name);
+      var name =  $("#name").val();
+      var email =  $("#email").val();
+      var about = $("#about").val();
+      var location = $("#location").val();
+
+      var musicPref = {
+        traditional : $("#musicPref_traditional").val(),
+        rock : $("#musicPref_rock").val(),
+        jazz : $("#musicPref_jazz").val(),
+        pop : $("#musicPref_pop").val(),
+        alternative : $("#musicPref_alternative").val(),
+        dangdut : $("#musicPref_dangdut").val(),
+      };
+
+      var partnerPref = {
+        trainer : $("#partnerPref_trainer").val(),
+        vocalist : $("#partnerPref_vocalist").val(),
+        guitarist : $("#partnerPref_guitarist").val(),
+        pianist : $("#partnerPref_pianist").val(),
+        bassist : $("#partnerPref_bassist").val(),
+        drummer : $("#partnerPref_drummer").val(),
+      };
+
+      var data = {
+        name : name,
+        email : email,
+        about : about,
+        location : location,
+        musicPref : musicPref,
+        partnerPref : partnerPref,
+      };
+
+      window.localStorage.setItem("profile",JSON.stringify(data));
   };
 });
