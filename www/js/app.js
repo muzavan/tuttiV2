@@ -80,6 +80,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }
   })
 
+  .state('tab.about', {
+    url: '/about',
+    views: {
+      'tab-account': {
+        templateUrl: 'templates/tab-about.html',
+        controller: 'AboutCtrl'
+      }
+    }
+  })
+
   .state('tab.notification', {
     url: '/notification',
     views: {

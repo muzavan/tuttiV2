@@ -1,9 +1,31 @@
 <ion-view view-title="Account">
   <ion-content>
     <div class="list" id="mainUser">
-	    <ion-toggle  id="settings.enableFriends">
-	        Enable Friends
-	    </ion-toggle>
+	  <li class="item item-toggle">
+	     Discover Me
+	     <label class="toggle toggle-assertive">
+	       <input type="checkbox">
+	       <div class="track">
+	         <div class="handle"></div>
+	       </div>
+	     </label>
+	  </li>
+	  <li class="item item-toggle">
+	  		Distance : {{distanceRange}} km 
+	  </li>
+	  <div class="item range range-assertive">
+	    <i class="icon ion-home"></i>
+	    <input type="range" name="volume" min="0" max="200" ng-model="distanceRange">
+	    <i class="icon ion-planet"></i>
+	  </div>
+	  <a class="item item-icon-right" href="#/app/musicPreferences">    
+	          Music Preferences
+	          <i class="icon ion-gear-b"></i>
+			  </a> 
+		<a class="item item-icon-right" href="#/app/partnerPreferences">    
+	          Partner Preferences
+	          <i class="icon ion-gear-b"></i>
+		</a> 
     </div>
     <div id="firstUser">
     	<div class="item item-divider">Basic Info</div>
@@ -11,7 +33,6 @@
 			  <label class="item item-input item-stacked-label">
 			    <span class="input-label">Name</span>
 			    <input type="text" placeholder="Fulan" id="name">
-			    <p>{{name}}</p>
 			  </label>
 			  <label class="item item-input item-stacked-label">
 			    <span class="input-label">Email</span>

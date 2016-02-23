@@ -26,6 +26,10 @@ angular.module('starter.controllers', [])
   
 })
 
+.controller('AboutCtrl', function($scope) {
+  
+})
+
 .controller('AccountCtrl', function($scope) {
   if(window.localStorage.getItem("profile") == null){
     $('#mainUser').hide();
