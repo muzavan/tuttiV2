@@ -38,20 +38,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     templateUrl: 'templates/tabs.html'
   })
 
-  // Each tab has its own nav history stack:
-
-  .state('tab.dash', {
-    url: '/dash',
-    views: {
-      'tab-dash': {
-        templateUrl: 'templates/tab-dash.html',
-        controller: 'DashCtrl'
-      }
-    }
-  })
-
   .state('tab.chats', {
       url: '/chats',
+      cache : false,
       views: {
         'tab-chats': {
           templateUrl: 'templates/tab-chats.html',
@@ -72,8 +61,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
   .state('tab.home', {
     url: '/home',
+    cache : false,
     views: {
-      'tab-account': {
+      'tab-home': {
         templateUrl: 'templates/tab-home.html',
         controller: 'HomeCtrl'
       }
@@ -82,8 +72,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
   .state('tab.about', {
     url: '/about',
+    cache : false,
     views: {
-      'tab-account': {
+      'tab-about': {
         templateUrl: 'templates/tab-about.html',
         controller: 'AboutCtrl'
       }
@@ -92,8 +83,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
   .state('tab.notification', {
     url: '/notification',
+    cache : false,
     views: {
-      'tab-account': {
+      'tab-notification': {
         templateUrl: 'templates/tab-notification.html',
         controller: 'NotificationCtrl'
       }
@@ -102,15 +94,38 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
   .state('tab.account', {
     url: '/account',
+    cache : false,
     views: {
       'tab-account': {
         templateUrl: 'templates/tab-account.html',
         controller: 'AccountCtrl'
       }
     }
+  })
+
+  .state('tab.music', {
+    url: '/account/music',
+    cache : false,
+    views: {
+      'tab-music': {
+        templateUrl: 'templates/tab-music.html',
+        controller: 'MusicCtrl'
+      }
+    }
+  })
+
+  .state('tab.partner', {
+    url: '/account/partner',
+    cache : false,
+    views: {
+      'tab-partner': {
+        templateUrl: 'templates/tab-partner.html',
+        controller: 'PartnerCtrl'
+      }
+    }
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/first');
+  $urlRouterProvider.otherwise('/tab/account');
 
 });

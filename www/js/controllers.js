@@ -2,7 +2,11 @@ angular.module('starter.controllers', [])
 
 .controller('ChatsCtrl', function($scope, Chats) {
   if(window.localStorage.getItem("profile") == null){
-    
+    $('#mainUser').hide();
+  }
+  else{
+    // if already signup
+    $('#firstUser').hide();
   }
 
   $scope.chats = Chats.all();
@@ -19,15 +23,39 @@ angular.module('starter.controllers', [])
 })
 
 .controller('HomeCtrl', function($scope) {
-  
+  if(window.localStorage.getItem("profile") == null){
+    $('#mainUser').hide();
+    $('#wait').hide();
+  }
+  else{
+    // if already signup
+    $('#firstUser').hide();
+    $('#mainUser').hide();
+    setTimeout(function(){
+      $('#wait').hide();
+      $('#mainUser').show();
+    },3000);
+  }
 })
 
 .controller('NotificationCtrl', function($scope) {
-  
+  if(window.localStorage.getItem("profile") == null){
+    $('#mainUser').hide();
+  }
+  else{
+    // if already signup
+    $('#firstUser').hide();
+  }
 })
 
 .controller('AboutCtrl', function($scope) {
   
+})
+.controller('MusicCtrl', function($scope) {
+  console.log("MusicCtrl");
+})
+.controller('PartnerCtrl', function($scope) {
+  console.log("PartnerCtrl");
 })
 
 .controller('AccountCtrl', function($scope) {
@@ -37,6 +65,7 @@ angular.module('starter.controllers', [])
   else{
     // if already signup
     $('#firstUser').hide();
+    $scope.distanceRange = 90;
   }
 
   $scope.signUp = function (){
@@ -74,5 +103,8 @@ angular.module('starter.controllers', [])
       };
 
       window.localStorage.setItem("profile",JSON.stringify(data));
+
+      $("#firstUser").hide();
+      window.location = "/#/tab/home";
   };
 });
