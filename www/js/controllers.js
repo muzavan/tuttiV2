@@ -58,7 +58,7 @@ angular.module('starter.controllers', [])
   console.log("PartnerCtrl");
 })
 
-.controller('AccountCtrl', function($scope) {
+.controller('AccountCtrl', function($scope,$ionicPopup) {
   if(window.localStorage.getItem("profile") == null){
     $('#mainUser').hide();
   }
@@ -106,5 +106,24 @@ angular.module('starter.controllers', [])
 
       $("#firstUser").hide();
       window.location = "/#/tab/home";
+  };
+
+  console.log("to Sign Out");
+
+  $scope.signOut = function(){
+    var confirmPopup = $ionicPopup.confirm({
+     title: 'Sign Out',
+     template: 'Are you sure you want to stop using this account?'
+     });
+
+     confirmPopup.then(function(res) {
+       if(res) {
+         console.log('You are sure');
+         window.localStorage.removeItem("profile");
+         window.location.reload(true);
+       } else {
+         console.log('You are not sure');
+       }
+    });
   };
 });
